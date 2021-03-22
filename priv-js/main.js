@@ -90,20 +90,20 @@ const showPreview = () => {
 };
 
 const updatePreview = () => {
-    const h3 = $postPreview.querySelector('h3');
-    const div = $postPreview.querySelector('div');
+    const div = $postPreview.querySelector('.creator__content');
+    let title = $postPreview.querySelector('h3');
 
     if($postTitle.value=='' && $postContent.value==''){
-        h3.innerText = '[add some text]';
+        title.innerText = '[add some text]';
         div.innerText = '[add some text]';
     } else {
-        h3.innerText = $postTitle.value;
+        title.innerText = $postTitle.value;
         div.innerHTML = $postContent.value;
         checkModifiedText();
     };
 
     if($postTitle.value==''){
-        h3.innerText = '[add some text]';
+        title.innerText = '[add some text]';
     };
 
     if($postContent.value==''){

@@ -114,7 +114,8 @@ body {
   pointer-events: none;
 }
 
-.creator__post textarea, .creator__post input[type='text'] {
+.creator__post textarea,
+.creator__post input[type='text'] {
   display: block;
   width: 90%;
   min-height: 340px;
@@ -216,13 +217,66 @@ body {
   padding-bottom: .6em;
 }
 
-.creator__preview h3 {
+.show-preview {
+  display: block;
+}
+
+.post__title {
   font-size: 2em;
   text-align: center;
   padding-bottom: .4em;
 }
 
-.show-preview {
+.post__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 65px;
+  margin: 0 0 1em 0;
+  padding: 0 2em;
+  color: #fff;
+  background-color: #000;
+  border-radius: 6px;
+}
+
+.post__info span {
+  font-weight: bold;
+}
+
+.post__content {
+  width: 90%;
+  max-width: 870px;
+  margin: 0 auto;
+  padding: 0 1em;
+  text-align: justify;
+}
+
+.post__content a {
+  display: inline-block;
+  margin: 0.4em 0.2em;
+  padding: .3em 1em;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #000;
+  -webkit-transition: color .3s ease, background-color .3s ease;
+  transition: color .3s ease, background-color .3s ease;
+}
+
+.post__content a:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.post__content img {
   display: block;
+  width: 100%;
+  max-width: 400px;
 }
 /*# sourceMappingURL=main.css.map */

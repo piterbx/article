@@ -210,6 +210,12 @@ body {
   padding: 2em;
 }
 
+.creator__preview h2 {
+  font-size: 2.5em;
+  text-align: center;
+  padding-bottom: .6em;
+}
+
 .creator__preview h3 {
   font-size: 2em;
   text-align: center;

@@ -80,8 +80,36 @@ const checkTextArea = () => {
     };
 };
 
+const checkModifiedText = () => {
+    let $modifiedText = $postContent.value;
+    // if($modifiedText.indexOf(''))
+};
+
 const showPreview = () => {
     $postPreview.classList.toggle('show-preview');
+    updatePreview();
+};
+
+const updatePreview = () => {
+    const h3 = $postPreview.querySelector('h3');
+    const p = $postPreview.querySelector('p');
+
+    if($postTitle.value=='' && $postContent.value==''){
+        h3.innerText = '[add some text]';
+        p.innerText = '[add some text]';
+    } else {
+        h3.innerText = $postTitle.value;
+        p.innerText = $postContent.value;
+        checkModifiedText();
+    };
+
+    if($postTitle.value==''){
+        h3.innerText = '[add some text]';
+    };
+
+    if($postContent.value==''){
+        p.innerText = '[add some text]';
+    };
 };
 
 // all events
@@ -89,3 +117,5 @@ setTime();
 $cancelBtn.addEventListener('click', cancelConfirm);
 $submitBtn.addEventListener('click', checkTextArea);
 $infoBtn.addEventListener('click', showPreview);
+$postTitle.addEventListener('keyup', updatePreview);
+$postContent.addEventListener('keyup', updatePreview);

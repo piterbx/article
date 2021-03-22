@@ -1,3 +1,7 @@
+.wrapper {
+  width: 80%;
+}
+
 .creator__settings {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;

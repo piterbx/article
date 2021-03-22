@@ -16,4 +16,17 @@ body {
   max-width: 1920px;
   margin: 10px auto;
 }
+
+.creator {
+  padding: 1.2em;
+}
+
+.creator__title {
+  text-align: center;
+}
+
+.creator__postarea {
+  width: 100%;
+  padding: 1em;
+}
 /*# sourceMappingURL=main.css.map */

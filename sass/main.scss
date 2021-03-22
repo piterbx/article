@@ -15,3 +15,16 @@ body {
     max-width: 1920px;
     margin: 10px auto;
 }
+
+.creator {
+    padding: 1.2em;
+
+    &__title {
+        text-align: center;
+    }
+
+    &__postarea {
+        width: 100%;
+        padding: 1em;
+    }
+}

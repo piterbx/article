@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" media="screen and (min-width:992px)" href="./css/lg.css">
     <title>Add new post</title>
 </head>
 <body>
@@ -14,12 +15,15 @@
             <h1 class="creator__title">Create your post</h1>
             <div class="creator__postarea">
                 <div class="creator__settings">
-                    <select name="category" id="category" class="creator__sett">
-                        <option value="general">general</option>
-                        <option value="announcement">announcement</option>
-                        <option value="food">food</option>
-                        <option value="animals">animals</option>
-                    </select>
+                    <div class="creator__sett creator__sett--list">
+                        <p>Category:</p>
+                        <select name="category" id="category" required>
+                            <option value="general">general</option>
+                            <option value="announcement">announcement</option>
+                            <option value="food">food</option>
+                            <option value="animals">animals</option>
+                        </select>
+                    </div>
                     <div class="creator__sett">
                         <input type="checkbox" name="allowComments" id="allowComments">
                         <label for="allowComments">Allow comments</label>
@@ -27,7 +31,7 @@
                     <div class="creator__sett">
                         <p>Author: Paul</p>
                     </div>
-                    <div class="creator__time">
+                    <div class="creator__sett">
                         Time: 2021 03 22 16:49:54
                     </div>
                 </div>

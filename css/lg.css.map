@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACK,AAAD,kBAAW,CAAC;EACR,cAAc,EAAE,GAAG;CACtB",
+    "sources": [
+        "../sass/lg.scss"
+    ],
+    "names": [],
+    "file": "lg.css"
+}

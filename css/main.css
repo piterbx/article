@@ -22,11 +22,90 @@ body {
 }
 
 .creator__title {
+  font-size: 2.5rem;
   text-align: center;
 }
 
 .creator__postarea {
   width: 100%;
   padding: 1em;
+}
+
+.creator__settings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 70px;
+  height: 100%;
+  border: 2px solid black;
+  border-radius: 6px;
+  margin: .8em 0;
+  font-size: 1.25rem;
+  overflow: hidden;
+  text-align: center;
+}
+
+.creator__sett {
+  margin: 1em .3em;
+}
+
+.creator__sett--list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.creator__sett--list p {
+  display: inline-block;
+  padding: 0 0.5em;
+}
+
+.creator__sett--list select {
+  min-width: 150px;
+  padding: .2em;
+  font-size: 1.1rem;
+  border: 0;
+  border-radius: 6px;
+  outline: 0;
+  background-color: #fff;
+  color: #000;
+}
+
+.creator__sett--list::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 22px;
+  height: 100%;
+  background-color: black;
+  content: '';
+  z-index: 20;
+  pointer-events: none;
+}
+
+.creator__sett--list::after {
+  position: absolute;
+  top: 4px;
+  right: 1px;
+  width: 20px;
+  height: 20px;
+  -webkit-clip-path: polygon(50% 60%, 80% 41%, 80% 58%, 50% 80%, 20% 60%, 20% 41%);
+          clip-path: polygon(50% 60%, 80% 41%, 80% 58%, 50% 80%, 20% 60%, 20% 41%);
+  background-color: #fff;
+  content: '';
+  z-index: 21;
+  pointer-events: none;
 }
 /*# sourceMappingURL=main.css.map */

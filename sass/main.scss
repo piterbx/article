@@ -20,11 +20,79 @@ body {
     padding: 1.2em;
 
     &__title {
+        font-size: 2.5rem;
         text-align: center;
     }
 
     &__postarea {
         width: 100%;
         padding: 1em;
+    }
+
+    &__settings {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        min-height: 70px;
+        height: 100%;
+        border: 2px solid black;
+        border-radius: 6px;
+        margin: .8em 0;
+        font-size: 1.25rem;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    &__sett {
+        margin: 1em .3em;
+
+        &--list {
+            display: flex;
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+
+            p {
+                display: inline-block;
+                padding: 0 0.5em;
+            }
+            
+            select {
+                min-width: 150px;
+                padding: .2em;
+                font-size: 1.1rem;
+                border: 0;
+                border-radius: 6px;
+                outline: 0;
+                background-color: #fff;
+                color: #000;
+            }
+        }
+
+        &--list::before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 22px;
+            height: 100%;
+            background-color: black;
+            content: '';
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        &--list::after {
+            position: absolute;
+            top: 4px;
+            right: 1px;
+            width: 20px;
+            height: 20px;
+            clip-path: polygon(50% 60%, 80% 41%, 80% 58%, 50% 80%, 20% 60%, 20% 41%);
+            background-color: #fff;
+            content: '';
+            z-index: 21;
+            pointer-events: none;
+        }
     }
 }

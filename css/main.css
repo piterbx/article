@@ -222,8 +222,9 @@ body {
 }
 
 .post__title {
-  font-size: 2em;
+  font-size: 2.4em;
   text-align: center;
+  font-weight: bold;
   padding-bottom: .4em;
 }
 
@@ -241,7 +242,7 @@ body {
   margin: 0 0 1em 0;
   padding: 0 2em;
   color: #fff;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.835);
   border-radius: 6px;
 }
 
@@ -255,6 +256,10 @@ body {
   margin: 0 auto;
   padding: 0 1em;
   text-align: justify;
+}
+
+.post__content p {
+  padding: .2em 1em;
 }
 
 .post__content a {

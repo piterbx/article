@@ -100,7 +100,7 @@ body {
     }
 
     &__post {
-        textarea {
+        textarea, input[type='text'] {
             display: block;
             width: 90%;
             min-height: 340px;
@@ -116,6 +116,12 @@ body {
             resize: none;
             overflow: auto;
             scrollbar-color: #ccc #fff;
+        }
+
+        input[type='text'] {
+            min-height: 60px !important;
+            height: 60px !important;
+            margin: 10px auto;
         }
     }
 

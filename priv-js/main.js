@@ -14,7 +14,8 @@ const $categoryBox = document.getElementById('category');
 const $commentsBox = document.querySelector('#allowComments');
 const $authorBox = document.querySelector('.author');
 const $timeBox = document.querySelector('.timebox');
-const $postContent = document.querySelector('textarea');
+const $postTitle = document.querySelector('#newPostTitle');
+const $postContent = document.querySelector('#newPostContent');
 // btns
 const $infoBtn = document.querySelector('.creator__btn--info');
 const $cancelBtn = document.querySelector('.cancel');

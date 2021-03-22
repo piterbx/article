@@ -18,10 +18,10 @@
                     <div class="creator__sett creator__sett--list">
                         <p>Category:</p>
                         <select name="category" id="category" required>
-                            <option value="general">general</option>
-                            <option value="announcement">announcement</option>
-                            <option value="food">food</option>
-                            <option value="animals">animals</option>
+                            <option value="general">General</option>
+                            <option value="announcement">Announcement</option>
+                            <option value="food">Food</option>
+                            <option value="animals">Animals</option>
                         </select>
                     </div>
                     <div class="creator__sett creator__sett--list">
@@ -41,7 +41,8 @@
                     </div>
                 </div>
                 <div class="creator__post">
-                    <textarea name="newPost" id="newPost"></textarea>
+                    <input type="text" id="newPostTitle" placeholder="Post Title" required>
+                    <textarea name="newPost" id="newPostContent" placeholder="Post Content" required></textarea>
                 </div>
                 <div class="creator__btns">
                     <button class="creator__btn creator__btn--info">

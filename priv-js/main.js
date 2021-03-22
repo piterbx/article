@@ -16,6 +16,7 @@ const $authorBox = document.querySelector('.author');
 const $timeBox = document.querySelector('.timebox');
 const $postTitle = document.querySelector('#newPostTitle');
 const $postContent = document.querySelector('#newPostContent');
+const $postPreview = document.querySelector('.creator__preview');
 // btns
 const $infoBtn = document.querySelector('.creator__btn--info');
 const $cancelBtn = document.querySelector('.cancel');
@@ -61,7 +62,7 @@ const cancelConfirm = () => {
 
 const createNewPost = () => {
     $newPost = new Post();
-    $newPost.title = 'working on it';
+    $newPost.title = $postTitle.value;
     $newPost.category = $categoryBox.value;
     $newPost.comments = $commentsBox.value;
     $newPost.author = $authorBox.innerText;
@@ -72,14 +73,19 @@ const createNewPost = () => {
 };
 
 const checkTextArea = () => {
-    if($postContent.value!==''){
+    if($postContent.value!=='' && $postTitle.value!==''){
         createNewPost();
     } else {
-        alert('Add some text here');
+        alert('Add some text ;)');
     };
+};
+
+const showPreview = () => {
+    $postPreview.classList.toggle('show-preview');
 };
 
 // all events
 setTime();
 $cancelBtn.addEventListener('click', cancelConfirm);
 $submitBtn.addEventListener('click', checkTextArea);
+$infoBtn.addEventListener('click', showPreview);

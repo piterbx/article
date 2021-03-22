@@ -176,8 +176,8 @@ body {
   padding: 0;
   height: 100%;
   border: 0;
-  -webkit-transform: scale(1.2) translateY(12px);
-          transform: scale(1.2) translateY(12px);
+  -webkit-transform: scale(1.2) translateY(12.5px);
+          transform: scale(1.2) translateY(12.5px);
 }
 
 .creator__btn::before {
@@ -186,23 +186,37 @@ body {
   left: 48%;
   width: 20px;
   height: 20px;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%) scale(0.2);
+          transform: translate(-50%, -50%) scale(0.2);
   content: '';
   background-color: #e2e2e1;
-  -webkit-clip-path: circle(0% at 50% 50%);
-          clip-path: circle(0% at 50% 50%);
+  -webkit-clip-path: circle(50% at 50% 50%);
+          clip-path: circle(50% at 50% 50%);
   z-index: -1;
-  -webkit-transition: -webkit-clip-path .3s ease, -webkit-transform .3s ease;
-  transition: -webkit-clip-path .3s ease, -webkit-transform .3s ease;
-  transition: clip-path .3s ease, transform .3s ease;
-  transition: clip-path .3s ease, transform .3s ease, -webkit-clip-path .3s ease, -webkit-transform .3s ease;
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
 }
 
 .creator__btn:hover::before {
   -webkit-transform: scale(10);
           transform: scale(10);
-  -webkit-clip-path: circle(50% at 50% 50%);
-          clip-path: circle(50% at 50% 50%);
+}
+
+.creator__preview {
+  display: none;
+  text-align: justify;
+  padding: 2em;
+}
+
+.creator__preview h3 {
+  font-size: 2em;
+  text-align: center;
+  padding-bottom: .4em;
+}
+
+.show-preview {
+  display: block;
 }
 /*# sourceMappingURL=main.css.map */

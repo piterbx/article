@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -45,19 +47,20 @@ body {
     }
 
     &__sett {
+        display: flex;
+        align-items: center;
         margin: 1em .3em;
 
+        p {
+            font-weight: bold;
+            padding: 0 0.5em;
+        }
+
         &--list {
-            display: flex;
             position: relative;
             border-radius: 4px;
             overflow: hidden;
 
-            p {
-                display: inline-block;
-                padding: 0 0.5em;
-            }
-            
             select {
                 min-width: 150px;
                 padding: .2em;
@@ -101,6 +104,7 @@ body {
                 display: inline-block;
                 width: 18px;
                 height: 18px;
+                margin-right: .4em;
                 border: 2px solid #000;
                 cursor: pointer;
             }
@@ -118,9 +122,85 @@ body {
                 height: 10px;
                 background-color: #fff;
                 content: '';
-                clip-path: polygon(50% 54%, 84% 18%, 85% 31%, 51% 66%, 30% 48%, 30% 36%);                
+                clip-path: polygon(50% 54%, 84% 18%, 85% 31%, 51% 66%, 30% 48%, 30% 36%);
                 transform: scale(2)
             }
         }
+    }
+
+    &__post {
+        textarea {
+            display: block;
+            width: 90%;
+            min-height: 340px;
+            height: 60vh;
+            margin: 0 auto;
+            padding: .3em .7em;
+            border-radius: 6px;
+            border: 2px solid #000;
+            font-family: inherit;
+            font-weight: normal;
+            font-size: 1.2rem;
+            line-height: 34px;
+            resize: none;
+            overflow: auto;
+            scrollbar-color: #ccc #fff;
+        }
+    }
+
+    &__btns {
+        display: flex;
+        justify-content: end;
+        gap: 20px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 1em;
+    }
+
+    &__btn {
+        position: relative;
+        background: none;
+        border: 2px solid #000;
+        padding: .7em 2.2em;
+        border-radius: 6px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        z-index: 1;
+        overflow: hidden;
+
+        &--darker {
+            background-color: #000;
+            color: #fff;
+        }
+
+        &--darker::before, &--darker:hover::before {
+            background-color: rgb(42, 42, 42) !important;
+        }
+
+        &--info {
+            padding: 0;
+            height: 100%;
+            border: 0;
+            transform: scale(1.2) translateY(12px);
+        }
+    }
+
+    &__btn::before {
+        position: absolute;
+        top: 50%;
+        left: 48%;
+        width: 20px;
+        height: 20px;
+        transform: translate(-50%, -50%);
+        content: '';
+        background-color: #e2e2e1;
+        clip-path: circle(0% at 50% 50%);
+        z-index: -1;
+        transition: clip-path .3s ease, transform .3s ease;
+    }
+
+    &__btn:hover::before {
+        transform: scale(10);
+        clip-path: circle(50% at 50% 50%);
     }
 }

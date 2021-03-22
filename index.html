@@ -25,20 +25,31 @@
                         </select>
                     </div>
                     <div class="creator__sett creator__sett--checkbox">
+                        <p>Comments:</p>
                         <input type="checkbox" name="allowComments" id="allowComments">
-                        <label for="allowComments">Allow comments</label>
+                        <label for="allowComments">Allow</label>
                     </div>
                     <div class="creator__sett">
-                        <p>Author: Paul</p>
+                        <p>Author:</p>
+                        <div class="author">Paul</div>
                     </div>
-                    <div class="creator__sett timebox">
-                        Time: 2021 03 22 16:49:54
+                    <div class="creator__sett">
+                        <p>Time:</p>
+                        <div class="timebox">2021 03 22 16:49:54</div>
                     </div>
                 </div>
                 <div class="creator__post">
                     <textarea name="newPost" id="newPost"></textarea>
                 </div>
                 <div class="creator__btns">
+                    <button class="creator__btn creator__btn--info">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            <polyline points="11 12 12 12 12 16 13 16"></polyline>
+                        </svg>
+                    </button>
                     <button class="creator__btn">Cancel</button>
                     <button class="creator__btn creator__btn--darker">Submit</button>
                 </div>

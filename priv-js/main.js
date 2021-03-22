@@ -7,7 +7,7 @@ function Post(title, category, comments, author, time, postContent) {
     postContent: this.postContent;
 };
 
-const $newPost = new Post();
+let $newPost;
 
 // all elements
 const $categoryBox = document.getElementById('category');
@@ -51,15 +51,34 @@ const setTime = () => {
     setTimeout(setTime, 1000);
 };
 
-const updateCategory = () => {
-    console.log($categoryBox.value);
+const cancelConfirm = () => {
+    const decision = confirm('Are you sure?');
+    if(decision){
+        window.location.href = 'index.html';
+    };
 };
 
-const updateCommentsOption = () => {
-    console.log($commentsBox.value);
+const createNewPost = () => {
+    $newPost = new Post();
+    $newPost.title = 'working on it';
+    $newPost.category = $categoryBox.value;
+    $newPost.comments = $commentsBox.value;
+    $newPost.author = $authorBox.innerText;
+    $newPost.time = $timeBox.innerText;
+    $newPost.postContent = $postContent.value;
+
+    console.log($newPost);
+};
+
+const checkTextArea = () => {
+    if($postContent.value!==''){
+        createNewPost();
+    } else {
+        alert('Add some text here');
+    };
 };
 
 // all events
 setTime();
-$categoryBox.addEventListener('change', updateCategory);
-$commentsBox.addEventListener('change', updateCommentsOption);
+$cancelBtn.addEventListener('click', cancelConfirm);
+$submitBtn.addEventListener('click', checkTextArea);

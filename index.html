@@ -24,10 +24,12 @@
                             <option value="animals">animals</option>
                         </select>
                     </div>
-                    <div class="creator__sett creator__sett--checkbox">
+                    <div class="creator__sett creator__sett--list">
                         <p>Comments:</p>
-                        <input type="checkbox" name="allowComments" id="allowComments">
-                        <label for="allowComments">Allow</label>
+                        <select name="allowComments" id="allowComments" required>
+                            <option value="general">Allow</option>
+                            <option value="announcement">Disallow</option>
+                        </select>
                     </div>
                     <div class="creator__sett">
                         <p>Author:</p>

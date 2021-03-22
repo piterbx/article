@@ -28,8 +28,8 @@ const setTime = () => {
     let h = date.getHours();
     let m = date.getMinutes();
     let s = date.getSeconds();
-    let day = date.getDay();
-    let month = date.getMonth();
+    let day = date.getDate();
+    let month = date.getMonth()+1;
     let year = date.getFullYear();
 
     if(h<10){
@@ -82,7 +82,6 @@ const checkTextArea = () => {
 
 const checkModifiedText = () => {
     let $modifiedText = $postContent.value;
-    // if($modifiedText.indexOf(''))
 };
 
 const showPreview = () => {
@@ -92,14 +91,14 @@ const showPreview = () => {
 
 const updatePreview = () => {
     const h3 = $postPreview.querySelector('h3');
-    const p = $postPreview.querySelector('p');
+    const div = $postPreview.querySelector('div');
 
     if($postTitle.value=='' && $postContent.value==''){
         h3.innerText = '[add some text]';
-        p.innerText = '[add some text]';
+        div.innerText = '[add some text]';
     } else {
         h3.innerText = $postTitle.value;
-        p.innerText = $postContent.value;
+        div.innerHTML = $postContent.value;
         checkModifiedText();
     };
 

@@ -22,6 +22,14 @@ const $infoBtn = document.querySelector('.creator__btn--info');
 const $cancelBtn = document.querySelector('.cancel');
 const $submitBtn = document.querySelector('.submit');
 
+// for createPost function
+let $CRpost;
+let $CRpostTitle;
+let $CRpostContent;
+let $CRcontentInfo;
+let $CRcontentTe;
+let $CRcontentImg;
+
 // all functions
 const setTime = () => {
     const date = new Date();
@@ -60,6 +68,43 @@ const cancelConfirm = () => {
     };
 };
 
+const createPostElements = () => {
+    $CRpost = document.createElement('div');
+    $CRpostTitle = document.createElement('h3');
+    $CRpostContent = document.createElement('div');
+    $CRcontentInfo = document.createElement('div');
+    $CRcontentText = document.createElement('p');
+    $CRcontentImg = document.createElement('img');
+    $CRpost.classList.add('post');
+    $CRpostTitle.classList.add('post__title');
+    $CRpostContent.classList.add('post__content');
+    $CRcontentInfo.classList.add('post__info');
+    $CRcontentText.classList.add('post__text');
+    $CRcontentImg.classList.add('post__img');
+    $CRpostContent.appendChild($CRcontentInfo);
+    $CRpostContent.appendChild($CRcontentText);
+    $CRpostContent.appendChild($CRcontentImg);
+    $CRpost.appendChild($CRpostTitle);
+    $CRpost.appendChild($CRpostContent);
+    // <div class="post">
+    //                     <h3 class="post__title">Post Title</h3>
+    //                     <div class="post__content">
+    //                         <div class="post__info">
+    //                             <p><span>Category:</span> General</p>
+    //                             <p><span>Author:</span> Paul</p>
+    //                             <p><span>Date:</span> 23:32:22 22/03/2021</p>
+    //                         </div>
+    //                         <p class="post__text">Hello there! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, vero sapiente neque quidem nihil quas voluptatum esse sed obcaecati consectetur ab repellat, blanditiis maxime architecto consequuntur iste cumque assumenda tenetur.</p>
+    //                         <img src="https://cdn.pixabay.com/photo/2021/03/12/21/25/keys-6090560__340.jpg"/>
+    //                     </div>
+    //                 </div>
+    addPostContent();
+};
+
+const addPostContent = () => {
+    console.log($CRpost);
+};
+
 const createNewPost = () => {
     $newPost = new Post();
     $newPost.title = $postTitle.value;
@@ -70,6 +115,8 @@ const createNewPost = () => {
     $newPost.postContent = $postContent.value;
 
     console.log($newPost);
+    createPostElements();
+    // addPostContent();
 };
 
 const checkTextArea = () => {
@@ -80,9 +127,6 @@ const checkTextArea = () => {
     };
 };
 
-const checkModifiedText = () => {
-    let $modifiedText = $postContent.value;
-};
 
 const showPreview = () => {
     $postPreview.classList.toggle('show-preview');
@@ -90,25 +134,22 @@ const showPreview = () => {
 };
 
 const updatePreview = () => {
-    const div = $postPreview.querySelector('.post__content');
-    let title = $postPreview.querySelector('h3');
+    createPostElements();
+    // if($postTitle.value=='' && $postContent.value==''){
+    //     title.innerText = '[add some text]';
+    //     div.innerText = '[add some text]';
+    // } else {
+    //     title.innerText = $postTitle.value;
+    //     div.innerHTML = $postContent.value;
+    // };
 
-    if($postTitle.value=='' && $postContent.value==''){
-        title.innerText = '[add some text]';
-        div.innerText = '[add some text]';
-    } else {
-        title.innerText = $postTitle.value;
-        div.innerHTML = $postContent.value;
-        checkModifiedText();
-    };
+    // if($postTitle.value==''){
+    //     title.innerText = '[add some text]';
+    // };
 
-    if($postTitle.value==''){
-        title.innerText = '[add some text]';
-    };
-
-    if($postContent.value==''){
-        title.innerText = '[add some text]';
-    };
+    // if($postContent.value==''){
+    //     title.innerText = '[add some text]';
+    // };
 };
 
 const showMobilePreview = () => {
@@ -129,5 +170,5 @@ $submitBtn.addEventListener('click', checkTextArea);
 $infoBtn.addEventListener('click', showPreview);
 $postTitle.addEventListener('keyup', updatePreview);
 $postContent.addEventListener('keyup', updatePreview);
-
 window.addEventListener('resize', showMobilePreview);
+document.addEventListener('DOMContentLoaded', showMobilePreview);

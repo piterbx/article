@@ -27,8 +27,11 @@ let $CRpost;
 let $CRpostTitle;
 let $CRpostContent;
 let $CRcontentInfo;
-let $CRcontentTe;
-let $CRcontentImg;
+let $CRcontentText;
+// let $CRcontentImg;
+let $CRcategory;
+let $CRauthor;
+let $CRdate;
 
 // all functions
 const setTime = () => {
@@ -73,17 +76,26 @@ const createPostElements = () => {
     $CRpostTitle = document.createElement('h3');
     $CRpostContent = document.createElement('div');
     $CRcontentInfo = document.createElement('div');
+    $CRcategory = document.createElement('p');
+    $CRauthor = document.createElement('p');
+    $CRdate = document.createElement('p');
     $CRcontentText = document.createElement('p');
-    $CRcontentImg = document.createElement('img');
+    // $CRcontentImg = document.createElement('img');
     $CRpost.classList.add('post');
     $CRpostTitle.classList.add('post__title');
     $CRpostContent.classList.add('post__content');
     $CRcontentInfo.classList.add('post__info');
+    $CRcategory.classList.add('c');
+    $CRauthor.classList.add('a');
+    $CRdate.classList.add('d');
     $CRcontentText.classList.add('post__text');
-    $CRcontentImg.classList.add('post__img');
+    // $CRcontentImg.classList.add('post__img');
+    $CRcontentInfo.appendChild($CRcategory);
+    $CRcontentInfo.appendChild($CRauthor);
+    $CRcontentInfo.appendChild($CRdate);
     $CRpostContent.appendChild($CRcontentInfo);
     $CRpostContent.appendChild($CRcontentText);
-    $CRpostContent.appendChild($CRcontentImg);
+    // $CRpostContent.appendChild($CRcontentImg);
     $CRpost.appendChild($CRpostTitle);
     $CRpost.appendChild($CRpostContent);
     // <div class="post">
@@ -102,7 +114,12 @@ const createPostElements = () => {
 };
 
 const addPostContent = () => {
-    console.log($CRpost);
+    $CRpostTitle.innerText = $postTitle.value;
+    $CRcontentText.innerText = $postContent.value;
+    $CRcategory.innerHTML = `<span>Category:</span> ${$categoryBox.value}`;
+    $CRauthor.innerHTML = `<span>Author:</span> ${$authorBox.innerText}`;
+    $CRdate.innerHTML = `<span>Date:</span> ${$timeBox.innerText}`;
+    // $CRcontentImg.innerText = $;
 };
 
 const createNewPost = () => {
@@ -135,20 +152,22 @@ const showPreview = () => {
 
 const updatePreview = () => {
     createPostElements();
+    $postPreview.innerHTML = '';
+    $postPreview.appendChild($CRpost);
     // if($postTitle.value=='' && $postContent.value==''){
-    //     title.innerText = '[add some text]';
-    //     div.innerText = '[add some text]';
+    //     $CRpostTitle.innerText = '[add some text]';
+    //     $CRcontentText.innerText = '[add some text]';
     // } else {
-    //     title.innerText = $postTitle.value;
-    //     div.innerHTML = $postContent.value;
+    //     $CRpostTitle.innerText = $postTitle.value;
+    //     $CRcontentText.innerHTML = $postContent.value;
     // };
 
     // if($postTitle.value==''){
-    //     title.innerText = '[add some text]';
+    //     $CRpostTitle.innerText = '[add some text]';
     // };
 
     // if($postContent.value==''){
-    //     title.innerText = '[add some text]';
+    //     $CRpostTitle.innerText = '[add some text]';
     // };
 };
 

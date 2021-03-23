@@ -90,7 +90,7 @@ const showPreview = () => {
 };
 
 const updatePreview = () => {
-    const div = $postPreview.querySelector('.creator__content');
+    const div = $postPreview.querySelector('.post__content');
     let title = $postPreview.querySelector('h3');
 
     if($postTitle.value=='' && $postContent.value==''){
@@ -107,7 +107,18 @@ const updatePreview = () => {
     };
 
     if($postContent.value==''){
-        p.innerText = '[add some text]';
+        title.innerText = '[add some text]';
+    };
+};
+
+const showMobilePreview = () => {
+    if(window.innerWidth <= 435){
+        $postPreview.classList.add('show-preview');
+        updatePreview();
+        $infoBtn.style.display = 'none';
+    } else {
+        $postPreview.classList.remove('show-preview');
+        $infoBtn.style.display = 'flex';
     };
 };
 
@@ -118,3 +129,5 @@ $submitBtn.addEventListener('click', checkTextArea);
 $infoBtn.addEventListener('click', showPreview);
 $postTitle.addEventListener('keyup', updatePreview);
 $postContent.addEventListener('keyup', updatePreview);
+
+window.addEventListener('resize', showMobilePreview);

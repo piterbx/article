@@ -8,4 +8,22 @@
       -ms-flex-direction: row;
           flex-direction: row;
 }
+
+.post__content {
+  width: 80%;
+}
+
+.post__content p {
+  padding: .2em 1em;
+}
+
+.post__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
 /*# sourceMappingURL=lg.css.map */

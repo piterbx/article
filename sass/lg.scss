@@ -7,3 +7,18 @@
         flex-direction: row;
     }
 }
+
+.post {
+    &__content {
+        width: 80%;
+
+        p {
+            padding: .2em 1em;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: row;
+    }
+}

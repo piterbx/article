@@ -16,11 +16,11 @@ body {
 .wrapper {
   width: 98%;
   max-width: 1920px;
-  margin: 10px auto;
+  margin: .3em auto;
 }
 
 .creator {
-  padding: 1.2em;
+  padding-top: 1.2em;
 }
 
 .creator__title {
@@ -156,7 +156,7 @@ body {
   position: relative;
   background: none;
   border: 2px solid #000;
-  padding: .7em 2.2em;
+  padding: .7em 1.4em;
   border-radius: 6px;
   font-size: 1.2rem;
   cursor: pointer;
@@ -174,6 +174,7 @@ body {
 }
 
 .creator__btn--info {
+  display: none;
   padding: 0;
   height: 100%;
   border: 0;
@@ -208,7 +209,7 @@ body {
 .creator__preview {
   display: none;
   text-align: justify;
-  padding: 2em;
+  padding: 2em 0;
 }
 
 .creator__preview h2 {
@@ -232,16 +233,21 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-height: 65px;
+  min-height: 40px;
   margin: 0 0 1em 0;
   padding: 0 2em;
   color: #fff;
+  text-align: center;
   background-color: rgba(0, 0, 0, 0.835);
   border-radius: 6px;
 }
@@ -251,7 +257,7 @@ body {
 }
 
 .post__content {
-  width: 90%;
+  width: 98%;
   max-width: 870px;
   margin: 0 auto;
   padding: 0 1em;
@@ -259,7 +265,7 @@ body {
 }
 
 .post__content p {
-  padding: .2em 1em;
+  padding: .2em 0;
 }
 
 .post__content a {
@@ -283,5 +289,7 @@ body {
   display: block;
   width: 100%;
   max-width: 400px;
+  padding: 1em;
+  margin: 0 auto;
 }
 /*# sourceMappingURL=main.css.map */

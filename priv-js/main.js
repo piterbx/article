@@ -121,6 +121,7 @@ const createNewPost = () => {
 const checkTextArea = () => {
     if($postContent.value!=='' && $postTitle.value!==''){
         createNewPost();
+        window.location.href="submit.html";
     } else {
         popup('submit');
     };
@@ -183,9 +184,11 @@ const popup = (nextStep) => {
                 const input1 = $popup.querySelector('input:first-of-type');
                 const input2 = $popup.querySelector('input:last-of-type');
                 $popupBtnNext.addEventListener('click', () => {
-                    if(input1.value!==''&&input2.value!==''){
+                    if(input1.value!=='' && input2.value!==''){
                         $postContent.value += `<!--image code--><img src="${input1.value}" alt="${input2.value}"/>`;
                         closePopup();
+                        input1.value = '';
+                        input2.value = '';
                     } else {
                         input1.classList.add('required');
                         input2.classList.add('required');
@@ -196,11 +199,24 @@ const popup = (nextStep) => {
             title.innerText = 'Confirm Cancel';
             mess.innerText = 'Are you sure?';
             content.innerHTML = '';
+            $popupBtnNext.addEventListener('click', () => {
+                closePopup();
+                window.location.href = '';
+            });
             break;
         case 'submit':
-            title.innerText = 'Confirm Submit';
+            title.innerText = 'Empty area';
             mess.innerText = 'Add some text first ;)';
             content.innerHTML = '';
+            $popupBtnNext.addEventListener('click', () => {
+                if($postContent.value!=='' && $postTitle.value!==''){
+                    window.location.href="submit.html";
+                } else {
+                    $postTitle.classList.add('required');
+                    $postContent.classList.add('required');
+                };
+                closePopup();
+            });
             break;
         default:
             return 0;
@@ -215,6 +231,8 @@ $submitBtn.addEventListener('click', checkTextArea);
 $infoBtn.addEventListener('click', showPreview);
 $postTitle.addEventListener('keyup', updatePreview);
 $postContent.addEventListener('keyup', updatePreview);
+$postTitle.addEventListener('keyup', ()=>$postTitle.classList.remove('required'));
+$postContent.addEventListener('keyup', ()=>{$postContent.classList.remove('required')});
 window.addEventListener('resize', showMobilePreview);
 $imgAddBtn.addEventListener('click', ()=>popup('addImg'));
 $popupBtnCancel.addEventListener('click', closePopup);

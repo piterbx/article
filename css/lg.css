@@ -17,6 +17,10 @@
   padding: .2em 1em;
 }
 
+.post__content img {
+  float: left;
+}
+
 .post__info {
   display: -webkit-box !important;
   display: -ms-flexbox !important;

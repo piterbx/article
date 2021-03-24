@@ -184,7 +184,7 @@ const popup = (nextStep) => {
                 const input2 = $popup.querySelector('input:last-of-type');
                 $popupBtnNext.addEventListener('click', () => {
                     if(input1.value!==''&&input2.value!==''){
-                        $postContent.value += `<img src="${input1.value}" alt="${input2.value}"/>`;
+                        $postContent.value += `<!--image code--><img src="${input1.value}" alt="${input2.value}"/>`;
                         closePopup();
                     } else {
                         input1.classList.add('required');

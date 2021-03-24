@@ -219,6 +219,12 @@ const popup = (nextStep) => {
                 closePopup();
             });
             break;
+        case 'manual':
+            title.innerText = 'Manual';
+            mess.innerText = '1.To add enter use <br>\n 2.To add image click button in top right corner \n 3.Text areas cannot be empty😉';
+            content.innerHTML = '';
+            $popupBtnNext.addEventListener('click', closePopup);
+            break;
         default:
             return 0;
     };
@@ -230,6 +236,7 @@ showMobilePreview();
 $cancelBtn.addEventListener('click', ()=>popup('cancel'));
 $submitBtn.addEventListener('click', checkTextArea);
 $infoBtn.addEventListener('click', showPreview);
+$manualBtn.addEventListener('click', () => {popup('manual')});
 $postTitle.addEventListener('keyup', updatePreview);
 $postContent.addEventListener('keyup', updatePreview);
 $postTitle.addEventListener('keyup', ()=>$postTitle.classList.remove('required'));

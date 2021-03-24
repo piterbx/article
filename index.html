@@ -9,7 +9,7 @@
     <link rel="stylesheet" media="screen and (min-width:992px)" href="./css/lg.css">
     <title>Add new post</title>
 </head>
-<body>
+<body class="overflow">
     <div class="wrapper">
         <div class="creator">
             <h1 class="creator__title">Create your post</h1>
@@ -43,9 +43,10 @@
                 <div class="creator__post">
                     <input type="text" id="newPostTitle" placeholder="Post Title" required>
                     <textarea name="newPost" id="newPostContent" placeholder="Post Content" required></textarea>
+                    <button class="btns__btn btns__btn--different btns__btn--darker add-img-btn">Add image</button>
                 </div>
                 <div class="creator__btns">
-                    <button class="creator__btn creator__btn--info" title="Show Post Preview">
+                    <button class="btns__btn btns__btn--info info" title="Show Post Preview">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <circle cx="12" cy="12" r="9"></circle>
@@ -53,10 +54,10 @@
                             <polyline points="11 12 12 12 12 16 13 16"></polyline>
                         </svg>
                     </button>
-                    <button class="creator__btn cancel">Cancel</button>
-                    <button class="creator__btn creator__btn--darker submit">Submit</button>
+                    <button class="btns__btn cancel">Cancel</button>
+                    <button class="btns__btn btns__btn--darker submit">Submit</button>
                 </div>
-                <div class="creator__preview show-preview">
+                <div class="creator__preview show-preview preview">
                     <h2>Preview</h2>
                     <div class="post">
                         <h3 class="post__title">Post Title</h3>
@@ -71,6 +72,19 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup show-popup">
+        <div class="popup__box">
+            <p class="popup__title">Add Image</p>
+            <p class="popup__message">To add img paste your link below and add alternative text.</p>
+            <div class="popup__content">
+                <input type="text" class="first">
+            </div>
+            <div class="popup__btns">
+                <button class="popup__btn btns__btn">cancel</button>
+                <button class=" popup__btn popup__btn--darker btns__btn btns__btn--darker">Next</button>
             </div>
         </div>
     </div>

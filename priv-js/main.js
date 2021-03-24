@@ -16,11 +16,14 @@ const $authorBox = document.querySelector('.author');
 const $timeBox = document.querySelector('.timebox');
 const $postTitle = document.querySelector('#newPostTitle');
 const $postContent = document.querySelector('#newPostContent');
-const $postPreview = document.querySelector('.creator__preview');
+const $postPreview = document.querySelector('.preview');
+const $popup = document.querySelector('.popup');
+
 // btns
-const $infoBtn = document.querySelector('.creator__btn--info');
+const $infoBtn = document.querySelector('.info');
 const $cancelBtn = document.querySelector('.cancel');
 const $submitBtn = document.querySelector('.submit');
+const $imgAddBtn = document.querySelector('.add-img-btn');
 
 // for createPost function
 let $CRpost;
@@ -175,6 +178,16 @@ const showMobilePreview = () => {
     };
 };
 
+const showPopup = (next) => {
+    document.body.classList.toggle = 'overflow';
+    $popup.classList.toggle('show-popup');
+    console.log(next);
+};
+
+const addImg = () => {
+    showPopup('img');
+};
+
 // all events
 setTime();
 showMobilePreview(); 
@@ -184,4 +197,5 @@ $infoBtn.addEventListener('click', showPreview);
 $postTitle.addEventListener('keyup', updatePreview);
 $postContent.addEventListener('keyup', updatePreview);
 window.addEventListener('resize', showMobilePreview);
+$imgAddBtn.addEventListener('click', addImg);
 });

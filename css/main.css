@@ -355,7 +355,6 @@ body {
 .popup__message {
   margin: 0 auto;
   width: 85%;
-  text-align: justify;
 }
 
 .popup__content {

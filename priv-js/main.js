@@ -137,7 +137,7 @@ const showPreview = () => {
 const updatePreview = () => {
     createPostElements();
     addPostContent();
-    $postPreview.innerHTML = '';
+    $postPreview.innerHTML = '<h2>Preview</h2>';
     $postPreview.appendChild($CRpost);
 
     if($postTitle.value==''){

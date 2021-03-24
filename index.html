@@ -41,18 +41,30 @@
                     </div>
                 </div>
                 <div class="creator__post">
-                    <input type="text" id="newPostTitle" placeholder="Post Title" required>
-                    <textarea name="newPost" id="newPostContent" placeholder="Post Content" title="add post content here" required></textarea>
-                    <button class="btns__btn btns__btn--different btns__btn--darker add-img-btn">Add image</button>
-                </div>
-                <div class="creator__btns">
-                    <button class="btns__btn btns__btn--info info" title="Show Post Preview">
+                    <input type="text" id="newPostTitle" placeholder="Post Title" title="Add Post Title Here" required>
+                    <textarea name="newPost" id="newPostContent" placeholder="Post Content" title="Add Post Content Here" required></textarea>
+                    <button class="btns__btn btns__btn--different btns__btn--darker add-img-btn" title="Add Image To Your Post">Add image</button>
+                    <button class="btns__btn btns__btn--different-i manualBtn" title="Manual Info">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <circle cx="12" cy="12" r="9"></circle>
                             <line x1="12" y1="8" x2="12.01" y2="8"></line>
                             <polyline points="11 12 12 12 12 16 13 16"></polyline>
                         </svg>
+                    </button>
+                </div>
+                <div class="creator__btns">
+                    <button class="btns__btn btns__btn--info previewBtn" title="Show Post Preview">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-presentation-analytics" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M9 12v-4"></path>
+                            <path d="M15 12v-2"></path>
+                            <path d="M12 12v-1"></path>
+                            <path d="M3 4h18"></path>
+                            <path d="M4 4v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-10"></path>
+                            <path d="M12 16v4"></path>
+                            <path d="M9 20h6"></path>
+                         </svg>
                     </button>
                     <button class="btns__btn cancel">Cancel</button>
                     <button class="btns__btn btns__btn--darker submit">Submit</button>

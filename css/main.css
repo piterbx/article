@@ -59,6 +59,17 @@ body {
   font-size: .86rem;
 }
 
+.btns__btn--different-i {
+  position: absolute;
+  bottom: 10px;
+  right: 25px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+}
+
 .btns__btn::before {
   position: absolute;
   top: 50%;
@@ -400,5 +411,23 @@ body {
 .required {
   -webkit-box-shadow: 0 0 7px rgba(255, 0, 0, 0.61);
           box-shadow: 0 0 7px rgba(255, 0, 0, 0.61);
+}
+
+@media (min-width: 375px) {
+  .btns__btn--different-i {
+    right: 30px;
+  }
+}
+
+@media (min-width: 500px) {
+  .btns__btn--different-i {
+    right: 40px;
+  }
+}
+
+@media (min-width: 740px) {
+  .btns__btn--different-i {
+    right: 50px;
+  }
 }
 /*# sourceMappingURL=main.css.map */

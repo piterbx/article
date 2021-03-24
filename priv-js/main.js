@@ -23,7 +23,8 @@ const $popupBtnCancel = document.querySelector('.popupCancel');
 const $popupBtnNext = document.querySelector('.popupNext');
 
 // btns
-const $infoBtn = document.querySelector('.info');
+const $infoBtn = document.querySelector('.previewBtn');
+const $manualBtn = document.querySelector('.manualBtn');
 const $cancelBtn = document.querySelector('.cancel');
 const $submitBtn = document.querySelector('.submit');
 const $imgAddBtn = document.querySelector('.add-img-btn');

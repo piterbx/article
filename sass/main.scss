@@ -56,6 +56,17 @@ body {
             transform: translateY(15%);
             font-size: .86rem;
         }
+
+        &--different-i {
+            position: absolute;
+            bottom: 10px;
+            right: 25px;
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+        }
     }
 
     &__btn::before {
@@ -357,4 +368,34 @@ body {
 
 .required {
     box-shadow: 0 0 7px rgba(255, 0, 0, 0.61);
+}
+
+@media (min-width:375px) {
+    .btns {
+        &__btn {
+            &--different-i {
+                right: 30px;
+            }
+        }
+    }
+}
+
+@media (min-width:500px) {
+    .btns {
+        &__btn {
+            &--different-i {
+                right: 40px;
+            }
+        }
+    }
+}
+
+@media (min-width:740px) {
+    .btns {
+        &__btn {
+            &--different-i {
+                right: 50px;
+            }
+        }
+    }
 }

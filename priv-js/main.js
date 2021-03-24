@@ -17,7 +17,10 @@ const $timeBox = document.querySelector('.timebox');
 const $postTitle = document.querySelector('#newPostTitle');
 const $postContent = document.querySelector('#newPostContent');
 const $postPreview = document.querySelector('.preview');
+//popup
 const $popup = document.querySelector('.popup');
+const $popupBtnCancel = document.querySelector('.popupCancel');
+const $popupBtnNext = document.querySelector('.popupNext');
 
 // btns
 const $infoBtn = document.querySelector('.info');
@@ -67,13 +70,6 @@ const setTime = () => {
     setTimeout(setTime, 1000);
 };
 
-const cancelConfirm = () => {
-    const decision = confirm('Are you sure?');
-    if(decision){
-        window.location.href = 'index.html';
-    };
-};
-
 const createPostElements = () => {
     $CRpost = document.createElement('div');
     $CRpostTitle = document.createElement('h3');
@@ -98,18 +94,6 @@ const createPostElements = () => {
     $CRpostContent.appendChild($CRcontentText);
     $CRpost.appendChild($CRpostTitle);
     $CRpost.appendChild($CRpostContent);
-    // <div class="post">
-    //                     <h3 class="post__title">Post Title</h3>
-    //                     <div class="post__content">
-    //                         <div class="post__info">
-    //                             <p><span>Category:</span> General</p>
-    //                             <p><span>Author:</span> Paul</p>
-    //                             <p><span>Date:</span> 23:32:22 22/03/2021</p>
-    //                         </div>
-    //                         <p class="post__text">Hello there! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, vero sapiente neque quidem nihil quas voluptatum esse sed obcaecati consectetur ab repellat, blanditiis maxime architecto consequuntur iste cumque assumenda tenetur.</p>
-    //                         <img src="https://cdn.pixabay.com/photo/2021/03/12/21/25/keys-6090560__340.jpg"/>
-    //                     </div>
-    //                 </div>
 };
 
 const addPostContent = () => {
@@ -138,7 +122,7 @@ const checkTextArea = () => {
     if($postContent.value!=='' && $postTitle.value!==''){
         createNewPost();
     } else {
-        alert('Add some text ;)');
+        popup('submit');
     };
 };
 
@@ -178,24 +162,60 @@ const showMobilePreview = () => {
     };
 };
 
-const showPopup = (next) => {
-    document.body.classList.toggle = 'overflow';
-    $popup.classList.toggle('show-popup');
-    console.log(next);
+const closePopup = () => {
+    document.body.classList.remove('overflow');
+    $popup.classList.remove('show-popup');
 };
 
-const addImg = () => {
-    showPopup('img');
+const popup = (nextStep) => {
+    document.body.classList.add('overflow');
+    $popup.classList.add('show-popup');
+
+    const title = $popup.querySelector('.popupTitle');
+    const mess = $popup.querySelector('.popupMs');
+    const content = $popup.querySelector('.popupContent');
+
+    switch(nextStep){
+        case 'addImg':
+                title.innerText = 'Add image';
+                mess.innerText = 'To add img paste your link below and add alternative text.';
+                content.innerHTML = '<input type="text" placeholder="Add link here" required><input type="text" placeholder="Add text here" required>';
+                const input1 = $popup.querySelector('input:first-of-type');
+                const input2 = $popup.querySelector('input:last-of-type');
+                $popupBtnNext.addEventListener('click', () => {
+                    if(input1.value!==''&&input2.value!==''){
+                        $postContent.value += `<img src="${input1.value}" alt="${input2.value}"/>`;
+                        closePopup();
+                    } else {
+                        input1.classList.add('required');
+                        input2.classList.add('required');
+                    };
+                });
+            break;
+        case 'cancel':
+            title.innerText = 'Confirm Cancel';
+            mess.innerText = 'Are you sure?';
+            content.innerHTML = '';
+            break;
+        case 'submit':
+            title.innerText = 'Confirm Submit';
+            mess.innerText = 'Add some text first ;)';
+            content.innerHTML = '';
+            break;
+        default:
+            return 0;
+    };
 };
 
 // all events
 setTime();
 showMobilePreview(); 
-$cancelBtn.addEventListener('click', cancelConfirm);
+$cancelBtn.addEventListener('click', ()=>popup('cancel'));
 $submitBtn.addEventListener('click', checkTextArea);
 $infoBtn.addEventListener('click', showPreview);
 $postTitle.addEventListener('keyup', updatePreview);
 $postContent.addEventListener('keyup', updatePreview);
 window.addEventListener('resize', showMobilePreview);
-$imgAddBtn.addEventListener('click', addImg);
+$imgAddBtn.addEventListener('click', ()=>popup('addImg'));
+$popupBtnCancel.addEventListener('click', closePopup);
 });

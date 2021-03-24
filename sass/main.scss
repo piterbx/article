@@ -292,9 +292,10 @@ body {
     overflow: auto;
 
     &__box {
-        background-color: #fff;
+        min-width: 300px;
         padding: 1em 2em;
         border-radius: 6px;
+        background-color: #fff;
         box-shadow: 0 0 20px #000;
     }
 
@@ -316,6 +317,7 @@ body {
             display: block;
             width: 90%;
             margin: 0 auto;
+            margin-top: .58em;
             padding: .7em 1.4em;
             border: 2px solid #000;
             border-radius: 6px;
@@ -325,7 +327,6 @@ body {
 
     &__btns {
         display: flex;
-        justify-content: space-aroun;
         margin: 0 auto;
         margin-bottom: .5em;
         width: 89%;
@@ -351,4 +352,8 @@ body {
 
 .overflow {
     overflow: hidden;
+}
+
+.required {
+    box-shadow: 0 0 7px rgba(255, 0, 0, 0.61);
 }

@@ -28,11 +28,11 @@ let $CRpostTitle;
 let $CRpostContent;
 let $CRcontentInfo;
 let $CRcontentText;
-// let $CRcontentImg;
 let $CRcategory;
 let $CRauthor;
 let $CRdate;
 
+document.addEventListener('DOMContentLoaded',()=>{
 // all functions
 const setTime = () => {
     const date = new Date();
@@ -80,7 +80,6 @@ const createPostElements = () => {
     $CRauthor = document.createElement('p');
     $CRdate = document.createElement('p');
     $CRcontentText = document.createElement('p');
-    // $CRcontentImg = document.createElement('img');
     $CRpost.classList.add('post');
     $CRpostTitle.classList.add('post__title');
     $CRpostContent.classList.add('post__content');
@@ -89,13 +88,11 @@ const createPostElements = () => {
     $CRauthor.classList.add('a');
     $CRdate.classList.add('d');
     $CRcontentText.classList.add('post__text');
-    // $CRcontentImg.classList.add('post__img');
     $CRcontentInfo.appendChild($CRcategory);
     $CRcontentInfo.appendChild($CRauthor);
     $CRcontentInfo.appendChild($CRdate);
     $CRpostContent.appendChild($CRcontentInfo);
     $CRpostContent.appendChild($CRcontentText);
-    // $CRpostContent.appendChild($CRcontentImg);
     $CRpost.appendChild($CRpostTitle);
     $CRpost.appendChild($CRpostContent);
     // <div class="post">
@@ -110,7 +107,6 @@ const createPostElements = () => {
     //                         <img src="https://cdn.pixabay.com/photo/2021/03/12/21/25/keys-6090560__340.jpg"/>
     //                     </div>
     //                 </div>
-    addPostContent();
 };
 
 const addPostContent = () => {
@@ -119,7 +115,6 @@ const addPostContent = () => {
     $CRcategory.innerHTML = `<span>Category:</span> ${$categoryBox.value}`;
     $CRauthor.innerHTML = `<span>Author:</span> ${$authorBox.innerText}`;
     $CRdate.innerHTML = `<span>Date:</span> ${$timeBox.innerText}`;
-    // $CRcontentImg.innerText = $;
 };
 
 const createNewPost = () => {
@@ -133,7 +128,7 @@ const createNewPost = () => {
 
     console.log($newPost);
     createPostElements();
-    // addPostContent();
+    addPostContent();
 };
 
 const checkTextArea = () => {
@@ -152,23 +147,21 @@ const showPreview = () => {
 
 const updatePreview = () => {
     createPostElements();
+    addPostContent();
     $postPreview.innerHTML = '';
     $postPreview.appendChild($CRpost);
-    // if($postTitle.value=='' && $postContent.value==''){
-    //     $CRpostTitle.innerText = '[add some text]';
-    //     $CRcontentText.innerText = '[add some text]';
-    // } else {
-    //     $CRpostTitle.innerText = $postTitle.value;
-    //     $CRcontentText.innerHTML = $postContent.value;
-    // };
 
-    // if($postTitle.value==''){
-    //     $CRpostTitle.innerText = '[add some text]';
-    // };
+    if($postTitle.value==''){
+        $CRpostTitle.innerText = '[add some text]';
+    } else {
+        $CRpostTitle.innerText = $postTitle.value;
+    };
 
-    // if($postContent.value==''){
-    //     $CRpostTitle.innerText = '[add some text]';
-    // };
+    if($postContent.value==''){
+        $CRcontentText.innerText = '[add some text]';
+    } else {
+        $CRcontentText.innerHTML = $postContent.value;
+    };
 };
 
 const showMobilePreview = () => {
@@ -184,10 +177,11 @@ const showMobilePreview = () => {
 
 // all events
 setTime();
+showMobilePreview(); 
 $cancelBtn.addEventListener('click', cancelConfirm);
 $submitBtn.addEventListener('click', checkTextArea);
 $infoBtn.addEventListener('click', showPreview);
 $postTitle.addEventListener('keyup', updatePreview);
 $postContent.addEventListener('keyup', updatePreview);
 window.addEventListener('resize', showMobilePreview);
-document.addEventListener('DOMContentLoaded', showMobilePreview);
+});

@@ -22,6 +22,8 @@ const $popup = document.querySelector('.popup');
 const $popupBtnCancel = document.querySelector('.popupCancel');
 const $popupBtnNext = document.querySelector('.popupNext');
 let $showPopup = true;
+let $input1;
+let $input2;
 
 // btns
 const $infoBtn = document.querySelector('.previewBtn');
@@ -29,6 +31,7 @@ const $manualBtn = document.querySelector('.manualBtn');
 const $cancelBtn = document.querySelector('.cancel');
 const $submitBtn = document.querySelector('.submit');
 const $imgAddBtn = document.querySelector('.add-img-btn');
+const $linkAddBtn = document.querySelector('.add-link-btn');
 
 // for createPost function
 let $CRpost;
@@ -172,6 +175,29 @@ const showMobilePreview = () => {
     };
 };
 
+const checkPopupInputs = choice => {
+    $input1 = $popup.querySelector('input:first-of-type');
+    $input2 = $popup.querySelector('input:last-of-type');
+    if($input1.value!=='' && $input2.value!==''){
+        switch(choice) {
+            case 'img':
+                $postContent.value += `<!--image code--><img src="${$input1.value}" alt="${$input2.value}"/>`;
+                break;
+            case 'link':
+                $postContent.value += `<!--link code--><a href="${$input1.value}">${$input2.value}"</a>`;
+                break;
+            default:
+                console.log('b');
+        };
+        closePopup();
+        $input1.value = '';
+        $input2.value = '';
+    } else {
+        $input1.classList.add('required');
+        $input2.classList.add('required');
+    };
+};
+
 const closePopup = () => {
     document.body.classList.remove('overflow');
     $popup.classList.remove('show-popup');
@@ -190,34 +216,28 @@ const popup = (nextStep) => {
                 title.innerText = 'Add image';
                 mess.innerText = 'To add img paste your link below and add alternative text.';
                 content.innerHTML = '<input type="text" placeholder="Add link here" required><input type="text" placeholder="Add text here" required>';
-                const input1 = $popup.querySelector('input:first-of-type');
-                const input2 = $popup.querySelector('input:last-of-type');
-                $popupBtnNext.addEventListener('click', () => {
-                    if(input1.value!=='' && input2.value!==''){
-                        $postContent.value += `<!--image code--><img src="${input1.value}" alt="${input2.value}"/>`;
-                        closePopup();
-                        input1.value = '';
-                        input2.value = '';
-                    } else {
-                        input1.classList.add('required');
-                        input2.classList.add('required');
-                    };
-                });
+                $popupBtnNext.onclick = () => checkPopupInputs('img');
+            break;
+        case 'addLink':
+                title.innerText = 'Add link';
+                mess.innerText = 'To add URL paste your link below and add text.';
+                content.innerHTML = '<input type="text" placeholder="Add URL here" required><input type="text" placeholder="Add linkname here" required>';
+                $popupBtnNext.onclick = () => checkPopupInputs('link');
             break;
         case 'cancel':
             title.innerText = 'Confirm Cancel';
             mess.innerText = 'Are you sure?';
             content.innerHTML = '';
-            $popupBtnNext.addEventListener('click', () => {
+            $popupBtnNext.onclick = () => {
                 closePopup();
                 window.location.href = '';
-            });
+            };
             break;
         case 'submit':
             title.innerText = 'Empty area';
             mess.innerText = 'Add some text first ;)';
             content.innerHTML = '';
-            $popupBtnNext.addEventListener('click', () => {
+            $popupBtnNext.onclick = () => {
                 if($postContent.value!=='' && $postTitle.value!==''){
                     window.location.href="submit.html";
                 } else {
@@ -225,7 +245,7 @@ const popup = (nextStep) => {
                     $postContent.classList.add('required');
                 };
                 closePopup();
-            });
+            };
             break;
         case 'manual':
             title.innerText = 'Manual';
@@ -251,5 +271,6 @@ $postTitle.addEventListener('keyup', ()=>$postTitle.classList.remove('required')
 $postContent.addEventListener('keyup', ()=>{$postContent.classList.remove('required')});
 window.addEventListener('resize', showMobilePreview);
 $imgAddBtn.addEventListener('click', ()=>popup('addImg'));
+$linkAddBtn.addEventListener('click', ()=>popup('addLink'));
 $popupBtnCancel.addEventListener('click', closePopup);
 });

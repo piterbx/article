@@ -212,7 +212,7 @@ body {
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
-          justify-content: end;
+          justify-content: flex-end;
   gap: 20px;
   width: 100%;
   margin: 0 auto;

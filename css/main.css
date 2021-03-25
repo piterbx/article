@@ -51,9 +51,6 @@ body {
 }
 
 .btns__btn--different {
-  position: absolute;
-  top: 43px;
-  right: 10%;
   padding: .5em 1.1em;
   -webkit-transform: translateY(15%);
           transform: translateY(15%);
@@ -233,10 +230,6 @@ body {
   font-size: 2.5em;
   text-align: center;
   padding-bottom: .6em;
-}
-
-.show-preview {
-  display: block;
 }
 
 .post__title {
@@ -419,6 +412,16 @@ body {
   display: -ms-flexbox;
   display: flex;
   z-index: 90;
+}
+
+.show-preview {
+  display: block;
+}
+
+.btns-container {
+  position: absolute;
+  top: 43px;
+  right: 10%;
 }
 
 .overflow {

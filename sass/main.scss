@@ -56,9 +56,6 @@ body {
         }
 
         &--different {
-            position: absolute;
-            top: 43px;
-            right: 10%;
             padding: .5em 1.1em;
             transform: translateY(15%);
             font-size: .86rem;
@@ -218,10 +215,6 @@ body {
     }
 }
 
-.show-preview {
-    display: block;
-}
-
 .post {
 
     &__title {
@@ -378,6 +371,16 @@ body {
 .show-popup {
     display: flex;
     z-index: 90;
+}
+
+.show-preview {
+    display: block;
+}
+
+.btns-container {
+    position: absolute;
+    top: 43px;
+    right: 10%;
 }
 
 .overflow {

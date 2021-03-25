@@ -136,6 +136,11 @@ const checkTextArea = () => {
 const showPreview = () => {
     $postPreview.classList.toggle('show-preview');
     updatePreview();
+    window.scrollTo({
+        top: 800,
+        left: 0,
+        behavior: 'smooth'
+    });
 };
 
 const updatePreview = () => {
@@ -187,7 +192,6 @@ const checkPopupInputs = choice => {
                 $postContent.value += `<!--link code--><a href="${$input1.value}">${$input2.value}"</a>`;
                 break;
             default:
-                console.log('b');
         };
         closePopup();
         $input1.value = '';
@@ -220,7 +224,7 @@ const popup = (nextStep) => {
             break;
         case 'addLink':
                 title.innerText = 'Add link';
-                mess.innerText = 'To add URL paste your link below and add text.';
+                mess.innerText = 'To add link paste correct URL below and add text.';
                 content.innerHTML = '<input type="text" placeholder="Add URL here" required><input type="text" placeholder="Add linkname here" required>';
                 $popupBtnNext.onclick = () => checkPopupInputs('link');
             break;
@@ -268,7 +272,7 @@ $manualBtn.addEventListener('click', () => {popup('manual')});
 $postTitle.addEventListener('keyup', updatePreview);
 $postContent.addEventListener('keyup', updatePreview);
 $postTitle.addEventListener('keyup', ()=>$postTitle.classList.remove('required'));
-$postContent.addEventListener('keyup', ()=>{$postContent.classList.remove('required')});
+$postContent.addEventListener('keyup', ()=>$postContent.classList.remove('required'));
 window.addEventListener('resize', showMobilePreview);
 $imgAddBtn.addEventListener('click', ()=>popup('addImg'));
 $linkAddBtn.addEventListener('click', ()=>popup('addLink'));

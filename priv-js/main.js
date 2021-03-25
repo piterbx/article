@@ -21,6 +21,7 @@ const $postPreview = document.querySelector('.preview');
 const $popup = document.querySelector('.popup');
 const $popupBtnCancel = document.querySelector('.popupCancel');
 const $popupBtnNext = document.querySelector('.popupNext');
+let $showPopup = true;
 
 // btns
 const $infoBtn = document.querySelector('.previewBtn');
@@ -158,9 +159,16 @@ const showMobilePreview = () => {
         $postPreview.classList.add('show-preview');
         updatePreview();
         $infoBtn.style.display = 'none';
+        $manualBtn.style.display = 'none';
+        if($showPopup==true){
+            popup('manual');
+            $showPopup = false;
+        };
     } else {
         $postPreview.classList.remove('show-preview');
         $infoBtn.style.display = 'flex';
+        $manualBtn.style.display = 'flex';
+        $showPopup = true;
     };
 };
 

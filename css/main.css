@@ -19,7 +19,7 @@ body {
   margin: .3em auto;
 }
 
-.btns__btn {
+.special__btn {
   position: relative;
   background: none;
   border: 2px solid #40A0BF;
@@ -32,16 +32,16 @@ body {
   overflow: hidden;
 }
 
-.btns__btn--darker {
+.special__btn--darker {
   background-color: #40A0BF;
   color: #fff;
 }
 
-.btns__btn--darker::before, .btns__btn--darker:hover::before {
+.special__btn--darker::before, .special__btn--darker:hover::before {
   background-color: #3088a5 !important;
 }
 
-.btns__btn--info {
+.special__btn--info {
   display: none;
   padding: 0;
   height: 100%;
@@ -50,14 +50,14 @@ body {
           transform: scale(1.2) translateY(12.5px);
 }
 
-.btns__btn--different {
+.special__btn--different {
   padding: .5em 1.1em;
   -webkit-transform: translateY(15%);
           transform: translateY(15%);
   font-size: .86rem;
 }
 
-.btns__btn::before {
+.special__btn::before {
   position: absolute;
   top: 50%;
   left: 48%;
@@ -76,7 +76,7 @@ body {
   transition: transform .3s ease, -webkit-transform .3s ease;
 }
 
-.btns__btn:hover::before {
+.special__btn:hover::before {
   -webkit-transform: scale(11);
           transform: scale(11);
 }

@@ -253,7 +253,7 @@ const popup = (nextStep) => {
             break;
         case 'manual':
             title.innerText = 'Manual';
-            mess.innerText = '1.To add enter use <br> \n 2.To add link type <a href="your_link">Your link</a> \n 3.To add image click button in top right corner \n 4.Text areas cannot be empty😉';
+            mess.innerText = '1.To add enter use <br> \n 2.To add link click button in top right corner \n 3.To add image click button in top right corner \n 4.Text areas cannot be empty😉';
             content.innerHTML = '';
             $popupBtnNext.addEventListener('click', closePopup);
             break;

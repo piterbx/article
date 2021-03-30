@@ -271,6 +271,7 @@ $infoBtn.addEventListener('click', showPreview);
 $manualBtn.addEventListener('click', () => {popup('manual')});
 $postTitle.addEventListener('keyup', updatePreview);
 $postContent.addEventListener('keyup', updatePreview);
+$categoryBox.addEventListener('change', updatePreview);
 $postTitle.addEventListener('keyup', ()=>$postTitle.classList.remove('required'));
 $postContent.addEventListener('keyup', ()=>$postContent.classList.remove('required'));
 window.addEventListener('resize', showMobilePreview);

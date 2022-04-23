@@ -126,9 +126,10 @@ const createNewPost = () => {
 const checkTextArea = () => {
     if($postContent.value!=='' && $postTitle.value!==''){
         createNewPost();
-        window.location.href="submit.html";
+        popup('gosubmit')
+        // window.location.href="submit.html";
     } else {
-        popup('submit');
+        popup('checksubmit');
     };
 };
 
@@ -215,6 +216,14 @@ const popup = (nextStep) => {
     const mess = $popup.querySelector('.popupMs');
     const content = $popup.querySelector('.popupContent');
 
+    const cancelBtnMakeHidden = () => {
+        $popupBtnCancel.style.display = 'none';
+            $popupBtnNext.addEventListener('click', () => {
+                $popupBtnCancel.style.display = 'block';
+                closePopup()
+            });
+    };
+
     switch(nextStep){
         case 'addImg':
                 title.innerText = 'Add image';
@@ -237,25 +246,32 @@ const popup = (nextStep) => {
                 window.location.href = '';
             };
             break;
-        case 'submit':
+        case 'checksubmit':
             title.innerText = 'Empty area';
             mess.innerText = 'Add some text first ;)';
             content.innerHTML = '';
+            cancelBtnMakeHidden();
             $popupBtnNext.onclick = () => {
-                if($postContent.value!=='' && $postTitle.value!==''){
-                    window.location.href="submit.html";
-                } else {
+                if($postContent.value==='' && $postTitle.value===''){
                     $postTitle.classList.add('required');
                     $postContent.classList.add('required');
+                } else if($postContent.value===''){
+                    $postContent.classList.add('required');
+                } else if($postTitle.value===''){
+                    $postTitle.classList.add('required');
                 };
-                closePopup();
             };
             break;
         case 'manual':
             title.innerText = 'Manual';
             mess.innerText = '1.To add enter use <br> \n 2.To add link click button in top right corner \n 3.To add image click button in top right corner \n 4.Text areas cannot be empty😉';
             content.innerHTML = '';
-            $popupBtnNext.addEventListener('click', closePopup);
+            cancelBtnMakeHidden();
+            break;
+        case 'gosubmit':
+            title.innerText = 'Your post has been submitted';
+            mess.innerText = 'Good Job!';
+            cancelBtnMakeHidden();
             break;
         default:
             return 0;

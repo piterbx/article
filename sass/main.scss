@@ -31,6 +31,7 @@ body {
         border: 2px solid map-get($colors, third);
         color: map-get($colors, third);
         padding: .7em 1.4em;
+        max-width: 200px;
         border-radius: 6px;
         font-size: 1.2rem;
         cursor: pointer;
@@ -210,12 +211,14 @@ body {
         h2 {
             font-size: 2.5em;
             text-align: center;
-            padding-bottom: .6em;
+            padding: 0.4em;
+            border-bottom: 2px solid map-get($colors, third);
         }
     }
 }
 
 .post {
+    padding-top: 1em;
 
     &__title {
         font-size: 2.4em;
@@ -350,6 +353,8 @@ body {
 
     &__btns {
         display: flex;
+        align-items: center;
+        justify-content: center;
         margin: 0 auto;
         margin-bottom: .5em;
         width: 89%;

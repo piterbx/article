@@ -127,7 +127,6 @@ const checkTextArea = () => {
     if($postContent.value!=='' && $postTitle.value!==''){
         createNewPost();
         popup('gosubmit')
-        // window.location.href="submit.html";
     } else {
         popup('checksubmit');
     };

@@ -189,7 +189,7 @@ const checkPopupInputs = choice => {
                 $postContent.value += `<!--image code--><img src="${$input1.value}" alt="${$input2.value}"/>`;
                 break;
             case 'link':
-                $postContent.value += `<!--link code--><a href="${$input1.value}">${$input2.value}"</a>`;
+                $postContent.value += `<!--link code--><a href="${$input1.value}">${$input2.value}</a>`;
                 break;
             default:
         };
